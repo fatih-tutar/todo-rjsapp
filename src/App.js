@@ -18,11 +18,17 @@ function App() {
     },
   ]);
 
+  const addTodo = (todo) => {
+    if(todo.name) {
+      setTodos([...todos, todo])
+    }
+  }
+
   return (
     <div className='app'>
       <h1>ToDos</h1>
-      <TodoField/>
-      <Todos todos={todos}/>
+      <TodoField addTodo = { addTodo } />
+      <Todos todos = { todos } />
     </div>
   )
 }
