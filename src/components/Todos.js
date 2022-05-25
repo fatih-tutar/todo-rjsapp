@@ -1,37 +1,22 @@
 import React from 'react'
 
-const Todos = () => {
+const Todos = ({todos}) => {
   return (
-    <ul className='todos'>
-        <li className='todos__item'>
-            <span className='todos__text'>GYM</span>
-            <div className='todos__buttons'>
-                <a href="#">❌</a>
-                <a href="#">✅</a>
-            </div>
-        </li>
-        <li className='todos__item'>
-            <span className='todos__text'>GYM</span>
-            <div className='todos__buttons'>
-                <a href="#">❌</a>
-                <a href="#">✅</a>
-            </div>
-        </li>
-        <li className='todos__item'>
-            <span className='todos__text'>GYM</span>
-            <div className='todos__buttons'>
-                <a href="#">❌</a>
-                <a href="#">✅</a>
-            </div>
-        </li>
-        <li className='todos__item'>
-            <span className='todos__text'>GYM</span>
-            <div className='todos__buttons'>
-                <a href="#">❌</a>
-                <a href="#">✅</a>
-            </div>
-        </li>
-    </ul>
+    todos.length > 0 ? (
+        <ul className='todos'>
+            {
+                todos.map((todo) => (
+                    <li key = {todo.id} className='todos__item'>
+                        <span className={todo.status ? "todos__text todos__text--done" : "todos__text"}>{todo.name}</span>
+                        <div className='todos__buttons'>
+                            <button href="#">❌</button>
+                            <button href="#" disabled = {todo.status}>✅</button>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+    ) : null
   )
 }
 
