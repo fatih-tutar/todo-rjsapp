@@ -28,6 +28,15 @@ body{
 .todos{
   list-style-type: none;
   padding: 0;
+  max-height: 350px;
+  overflow-y: auto;
+}
+.todos::-webkit-scrollbar{
+  width:5px;
+  background-color: coral;
+}
+.todos::-webkit-scrollbar-thumb{
+  background-color: #eee;
 }
 .todos .todos__item{
   display: flex;
