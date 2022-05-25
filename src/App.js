@@ -24,11 +24,22 @@ function App() {
     }
   }
 
+  const deleteTodo = (id) => {
+    let newTodos = todos.filter((todo) => todo.id !== id)
+    setTodos(newTodos)
+  }
+
+  const doneTodo = (id) => {
+    let currentTodo = todos.find((todo) => todo.id === id)
+    currentTodo.status = true
+    setTodos([...todos])
+  }
+
   return (
     <div className='app'>
       <h1>ToDos</h1>
       <TodoField addTodo = { addTodo } />
-      <Todos todos = { todos } />
+      <Todos todos = { todos } deleteTodo = { deleteTodo } doneTodo = { doneTodo } />
     </div>
   )
 }
